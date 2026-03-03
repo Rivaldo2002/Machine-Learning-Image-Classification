@@ -1,60 +1,98 @@
-🔬 Klasifikasi Citra Hasil Endoskopi Gastrointestinal
-📖 Deskripsi Proyek
-Proyek ini bertujuan untuk mengembangkan model klasifikasi citra medis hasil endoskopi dengan memanfaatkan metode Transfer Learning berbasis Convolutional Neural Network (CNN).
+# Klasifikasi Citra Endoskopi Sistem Gastrointestinal Bawah Menggunakan Transfer Learning CNN
 
-Sistem gastrointestinal sering menjadi perhatian utama karena berbagai gangguan seperti polip dan kolitis ulseratif yang dapat berkembang menjadi kondisi serius jika tidak segera ditangani. Model ini dirancang untuk secara otomatis membedakan citra ke dalam tiga kategori utama:
+Repository ini berisi kode sumber dan dokumentasi untuk proyek Tugas Akhir mengenai klasifikasi citra medis hasil endoskopi. Proyek ini memfokuskan pada deteksi dini tiga kategori utama pada saluran pencernaan bagian bawah: **Polip**, **Kolitis Ulseratif**, dan **Mukosa Normal**.
 
-Polip
+## 📌 Ringkasan Proyek
 
-Kolitis Ulseratif
+Penelitian ini bertujuan untuk mengembangkan model klasifikasi yang cepat dan akurat untuk membantu tenaga medis dalam mendiagnosis penyakit gastrointestinal. Dengan memanfaatkan metode **Transfer Learning**, model dapat mengenali fitur-fitur kompleks pada citra medis meskipun dengan dataset yang terbatas.
 
-Mukosa Normal
+## 🚀 Fitur Utama
 
-Dengan menerapkan pendekatan deep learning, proyek ini diharapkan dapat mendukung deteksi dini penyakit secara lebih cepat dan efisien dalam proses diagnosis medis.
+* 
+**Multi-class Classification**: Mengklasifikasikan citra ke dalam 3 kelas (Polip, Kolitis Ulseratif, Mukosa Normal).
 
-🗂️ Dataset
-Data citra yang digunakan dikumpulkan dari dua dataset publik berskala besar:
 
-HyperKvasir: Digunakan untuk kelas Polip (1.028 gambar) dan Kolitis Ulseratif (851 gambar).
+* 
+**Transfer Learning**: Menggunakan model pre-trained ternama seperti **VGG19**, **ResNet101V2**, dan **Inception V3**.
 
-GastroVision: Digunakan untuk kelas Mukosa Normal (1.467 gambar).
 
-Total keseluruhan dataset berjumlah 3.346 gambar, yang dipisah menjadi:
+* 
+**Advanced Data Augmentation**: Implementasi library `Albumentations` untuk teknik seperti *Horizontal Flip, Rotate, CLAHE, Gaussian Blur,* dan *Hue Saturation Value* untuk meningkatkan kekokohan model.
 
-2.140 Data Latih
 
-535 Data Validasi
+* 
+**Fine-tuning**: Optimalisasi model dengan membekukan lapisan awal dan melatih ulang lapisan akhir untuk spesifikasi dataset medis.
 
-671 Data Uji
 
-🛠️ Teknologi & Alat yang Digunakan
-Framework Utama: TensorFlow & Keras
 
-Prapemrosesan & Augmentasi Data: Albumentations (Horizontal Flip, Rotate, Random Brightness Contrast, CLAHE, Gaussian Blur, Gauss Noise, Hue Saturation Value)
+## 📊 Dataset
 
-Analisis Data: Python, Pandas, NumPy
+Data yang digunakan dalam proyek ini bersumber dari dataset publik:
 
-Lingkungan Eksekusi: Google Colab (GPU didukung)
+1. 
+**HyperKvasir**: Digunakan untuk kelas Polip dan Kolitis Ulseratif.
 
-💻 Highlight Implementasi Kode
-Berikut adalah beberapa bagian penting dari implementasi kode dalam proyek ini yang menunjukkan penggunaan clean code dan optimasi model:
 
-1. Augmentasi Data Tingkat Lanjut (Albumentations)
-Untuk mencegah overfitting dan meningkatkan ketahanan model terhadap variasi gambar medis, diterapkan teknik augmentasi data yang ekstensif:
+2. 
+**GastroVision**: Digunakan untuk kelas Mukosa Normal.
 
-2. Arsitektur Model (Transfer Learning dengan ResNet101V2)
-Model ini menggunakan arsitektur ResNet101V2 sebagai ekstraktor fitur (feature extractor), dipadukan dengan Custom Fully Connected Layer menggunakan Batch Normalization dan aktivasi Leaky ReLU.
 
-3. Kompilasi & Evaluasi Model
-Model dikompilasi menggunakan optimizer Adam dan dievaluasi dengan berbagai metrik untuk memastikan performa klasifikasi yang seimbang.
 
-📊 Hasil Performa Terbaik
-⚙️ Konfigurasi Model Terbaik
-Arsitektur: ResNet101V2
+Total dataset terdiri dari **3.346 citra** dengan rasio pembagian 80% data latih dan 20% data uji.
 
-Fungsi Aktivasi : Leaky ReLU
+## 🛠️ Teknologi yang Digunakan
 
-Optimizer : Adam (Learning Rate = 0.0001)
+* 
+**Bahasa**: Python 
 
-📈 Metrik Evaluasi (Data Uji)
-💡 Insight: Secara spesifik, model ini sangat andal dalam membedakan anomali, sehingga meminimalisir kesalahan deteksi (False Negatives) pada prediksi pasien polip atau kolitis ulseratif yang mungkin dianggap normal.
+
+* 
+**Framework**: TensorFlow & Keras 
+
+
+* 
+**Library**: Albumentations (Augmentasi), Pandas, NumPy, Matplotlib/Seaborn 
+
+
+* 
+**Lingkungan**: Google Colab 
+
+
+
+## 📈 Hasil Eksperimen Terbaik
+
+Berdasarkan pengujian beberapa skenario, model **ResNet101V2** memberikan performa paling optimal dengan konfigurasi:
+
+* 
+**Akurasi**: 98,66% 
+
+
+* 
+**Optimizer**: Adam (Learning Rate: 0.0001) 
+
+
+* 
+**Fungsi Aktivasi**: Leaky ReLU 
+
+
+* 
+**Fully Connected Layer**: Diawali dengan 512 unit 
+
+
+
+## 📁 Struktur Folder
+
+```text
+├── notebooks/           # File .ipynb (Google Colab)
+└── README.md
+
+```
+
+## ✍️ Penulis
+
+**Rivaldo Panangian Tambunan**
+
+* NRP: 5025201134 
+
+
+* Departemen Teknik Informatika, Institut Teknologi Sepuluh Nopember (ITS) 
